@@ -1,4 +1,10 @@
 # in app.py
+
+import os
+
+app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
+                CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
+
 def make_celery(app):
 	# set redis url vars
 	app.config['CELERY_BROKER_URL'] = environ.get('REDIS_URL', 'redis://localhost:6379/0')
