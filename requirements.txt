@@ -4,4 +4,3 @@ gunicorn==19.6.0
 redis==3.4.1
 celery==4.4.2
 celery[redis]
-Flask-Cors
