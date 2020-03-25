@@ -5,3 +5,4 @@ redis==3.4.1
 celery==4.4.2
 celery[redis]
 Flask-Cors
+rq 1.3.0
