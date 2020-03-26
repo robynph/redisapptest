@@ -14,7 +14,7 @@ def count(URL) -> str:
     print('task in app.py')
     q = Queue(connection=conn)
     result = q.enqueue(count_words_at_url, {URL})
-    return jsonify("result": result)
+    return jsonify({"result": result})
 
 if __name__ == "__main__":
     app.run(debug=True)
