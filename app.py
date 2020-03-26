@@ -25,9 +25,7 @@ def index():
 
         # get url that the person has entered
         url = "https://www.heroku.com"
-        job = q.enqueue_call(
-            func=count_words_at_url, args=(url), result_ttl=5000
-        )
+        job = q.enqueue(count_words_at_url, url)
         print(job.get_id())
 
     return jsonify({"results":results, "job":job.get_id()})
