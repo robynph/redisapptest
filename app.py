@@ -9,11 +9,11 @@ from utils import count_words_at_url
 app = Flask(__name__)
 
 
-@app.route("/count/< URL >", methods=["POST"])
-def count(URL) -> str:
+@app.route("/count", methods=["POST"])
+def count():
     print('task in app.py')
     q = Queue(connection=conn)
-    result = q.enqueue(count_words_at_url, {URL})
+    result = q.enqueue(count_words_at_url, 'https://heroku.com')
     return jsonify({"result": result})
 
 if __name__ == "__main__":
