@@ -2,7 +2,5 @@ Flask-Cors==3.0.7
 Flask==1.0.2
 gunicorn==19.6.0
 redis==3.4.1
-celery==4.4.2
-celery[redis]
 rq==1.3.0
 requests==2.19.1
