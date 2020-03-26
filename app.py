@@ -15,6 +15,3 @@ def count():
     q = Queue(connection=conn)
     result = q.enqueue(count_words_at_url, 'https://heroku.com')
     return jsonify({"result": result})
-
-if __name__ == "__main__":
-    app.run(debug=True)
