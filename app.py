@@ -36,12 +36,7 @@ def get_results(job_key):
     job = Job.fetch(job_key, connection=conn)
 
     if job.is_finished:
-        result = Result.query.filter_by(id=job.result).first()
-        results = sorted(
-            result.result_no_stop_words.items(),
-            key=operator.itemgetter(1),
-            reverse=True
-        )[:10]
+        results = job.result
         return jsonify(results)
     else:
         return "Nay!", 202
