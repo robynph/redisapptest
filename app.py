@@ -63,15 +63,13 @@ def index():
         from app import count_and_save_words
 
         # get url that the person has entered
-        url = request.form['url']
-        if not url[:8].startswith(('https://', 'http://')):
-            url = 'http://' + url
+        url = "http:www.heroku.com"
         job = q.enqueue_call(
             func=count_and_save_words, args=(url,), result_ttl=5000
         )
         print(job.get_id())
 
-    return render_template('index.html', results=results)
+    return jsonify({"results":results, "job":job.get_id()})
 
 @app.route("/results/<job_key>", methods=['GET'])
 def get_results(job_key):
