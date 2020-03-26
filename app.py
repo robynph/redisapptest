@@ -5,7 +5,7 @@ from flask import Flask, jsonify, url_for, request, redirect
 from rq import Queue
 from rq.job import Job
 from worker import conn
-from utils import count_words_at_url
+# from utils import count_words_at_url
 
 app = Flask(__name__)
 
@@ -19,7 +19,7 @@ def index():
     results = {}
     if request.method == "POST":
         # this import solves a rq bug which currently exists
-        from app import count_and_save_words
+        from utils import count_words_at_url
 
         # get url that the person has entered
         url = "https://www.heroku.com"
