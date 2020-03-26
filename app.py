@@ -6,6 +6,8 @@ from rq import Queue
 from rq.job import Job
 from worker import conn
 # from utils import count_words_at_url
+#
+q = Queue(connection=conn)
 
 app = Flask(__name__)
 
